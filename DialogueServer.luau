@@ -2,18 +2,19 @@
 --  DIALOGUE SERVER — DO NOT EDIT
 --  Location: ServerScriptService (Script named "DialogueServer")
 -- ═══════════════════════════════════════════════════════════════
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
 local Players           = game:GetService("Players")
 local RunService        = game:GetService("RunService")
 
-local Data    = require(ReplicatedStorage:WaitForChild("DialogueData"))
-local Assets  = Data.Assets
-local Volumes = Assets.Volumes or {}
-local Settings= Data.Settings
-local Hooks   = Data.Hooks
+-- ⭐ LOAD CONFIG FROM STUDIO
+local Config = require(ReplicatedStorage:WaitForChild("DialogueConfig"))
 
+local Assets   = Config
+local Settings = Config
+local Hooks    = Config.Hooks
+
+-- ... (The rest of the server script remains exactly the same)
 -- ─── 1. REMOTE EVENTS ───
 local function EnsureRemote(name)
     local r = ReplicatedStorage:FindFirstChild(name)
