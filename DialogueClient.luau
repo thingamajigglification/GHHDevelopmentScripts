@@ -1,8 +1,3 @@
--- ═══════════════════════════════════════════════════════════════
---  DIALOGUE CLIENT — DO NOT EDIT
---  Location: StarterPlayer/StarterPlayerScripts (LocalScript)
--- ═══════════════════════════════════════════════════════════════
-
 local Players           = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TweenService      = game:GetService("TweenService")
@@ -10,12 +5,16 @@ local ContentProvider   = game:GetService("ContentProvider")
 
 local LocalPlayer      = Players.LocalPlayer
 local PlayerGui        = LocalPlayer:WaitForChild("PlayerGui")
-local Data             = require(ReplicatedStorage:WaitForChild("DialogueData"))
+
+-- ⭐ LOAD CONFIG FROM STUDIO
+local Config           = require(ReplicatedStorage:WaitForChild("DialogueConfig"))
 local DialogueEvent    = ReplicatedStorage:WaitForChild("DialogueEvent")
 local DialogueRequest  = ReplicatedStorage:WaitForChild("DialogueRequest")
-local Settings         = Data.Settings
-local Assets           = Data.Assets
 
+local Settings         = Config
+local Assets           = Config
+
+-- ... (The rest of the client script remains exactly the same)
 -- ─── SOUNDS ───
 local SoundsFolder = ReplicatedStorage:WaitForChild("DialogueSounds")
 
